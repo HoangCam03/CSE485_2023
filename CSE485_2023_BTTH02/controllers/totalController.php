@@ -2,7 +2,6 @@
 // require_once '../models/Category.php';
 require_once './models/total.php';
 
-   //Nhiều lúc nó là ./ í Cầm ạ lỗi Cầm cứ thử đổi qua lại xem nhá cái đề xuất ảo lắm
 // CategoryController.php
 class TotalController{
     public function admin() {

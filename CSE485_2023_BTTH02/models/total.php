@@ -41,8 +41,6 @@ function getAllCategory() {
     }
 }
 
-
-
 function add() {
     $conn = getDatabaseConnection();
     $ten_tloai = $_POST['ten_tloai'];
@@ -60,24 +58,6 @@ function add() {
         }
     }
 }
-
-// function updateCategory($ma_tloai, $ten_tloai){
-//     $catagory = [];
-//     //Hàm này nên viết kiểu mysqli cho dễ sử dụng
-//        $conn = getDatabaseConnection();
-//         // $id = $_GET['id'];
-//         if ($conn != null){
-//             $sql = "UPDATE ` btth01_cse485`.`theloai` SET `ten_tloai`='$ten_tloai' WHERE  `ma_tloai`=$ma_tloai;";
-//             $stmt = $conn->query($sql);
-//             if($stmt) {
-//                 echo "sắc sét";
-//             }else {
-//                 echo "phêu";
-//             }
-//             return $catagory;
-//         }
-
-// }
 function viewUpdate() {
     $conn = getDatabaseConnection();
 
@@ -129,20 +109,3 @@ function delete($id) {
         return $stmt;
     }
 }
-
-
-
-// $sql = "UPDATE theloai SET ten_tloai = ? WHERE ma_tloai = ?";
-
-
-
-// Gọi hàm để lấy số lượng tác giả
-// $soLuongTacGia = countAuthors();
-// echo "Số lượng tác giả: " . $soLuongTacGia;
-// SELECT COUNT(*) AS so_luong_nguoi_dung FROM users
-//         UNION ALL
-//         SELECT COUNT(*) AS so_luong_the_loai FROM theloai
-//         UNION ALL
-//         SELECT COUNT(*) AS so_luong_tac_gia FROM tacgia
-//         UNION ALL
-//         SELECT COUNT(*) AS so_luong_bai_viet FROM baiviet;
