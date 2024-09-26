@@ -12,20 +12,47 @@
 <!-- Action là tên cả HÀM trong FILE controller mà chúng ta gọi -->
 
 <?php
-// B1: Bắt giá trị controller và action
-$controller = isset($_GET['controller'])?   $_GET['controller']:'home';
-$action     = isset($_GET['action'])?       $_GET['action']:'index';
 
-// B2: Chuẩn hóa tên trước khi gọi
-$controller = ucfirst($controller);
-$controller .= 'Controller';
-$controllerPath = 'controllers/'.$controller.'.php';
 
-// B3. Để gọi nó Controller
-if(!file_exists($controllerPath)){
-    die('Lỗi! Controller này không tồn tại');
+$controller = isset($_GET['controller'])?$_GET['controller']:'home';
+$action = isset($_GET['action'])?$_GET['action']:'index';
+if ($controller == 'home'){
+
+    require_once './controllers/HomeController.php';
+    $homeController = new HomeController();
+    if($action == 'index'){
+        $homeController->index();//gọi đến phương thức index trong HomeController và các cái dưới cũng tưng tự là gọi từ PatientController
+    }else {
+        echo 'Nothing';
+    }
+} else if ($controller == 'total'){   //controller truyền từ file index trong home sau dấu ? của href="index.php?action=viewAdd&controller=patient"
+    require_once './controllers/totalController.php';
+    $toTalController = new TotalController();
+    // $patientController->index();
+    if($action == 'viewLogin'){    //đây chính là $action truyền từ file index trong home sau dấu ? của href="index.php?action=viewAdd"
+        $toTalController->viewLogin();
+    } else if($action == 'admin'){ //đây chính là $action truyền từ file index trong home sau dấu ? của href="index.php?action=viewUpdate"
+        $toTalController->admin();
+    }
+    else if($action == 'viewCategory'){ //đây chính là $action truyền từ file index trong home sau dấu ? của href="index.php?action=viewUpdate"
+        $toTalController->viewCategory();
+    }
+    else if($action == 'viewEdit'){ //đây chính là $action truyền từ file index trong home sau dấu ? của href="index.php?action=viewUpdate"
+        $toTalController->viewEdit();
+    }
+    else if($action == 'deletecategory'){ //đây chính là $action truyền từ file index trong home sau dấu ? của href="index.php?action=viewUpdate"
+        $toTalController->getdelete();
+    }
+    else if($action == 'detail1'){ //đây chính là $action truyền từ file index trong home sau dấu ? của href="index.php?action=viewUpdate"
+        $toTalController->detail1();
+    }else if($action == 'updateCategory'){ //đây chính là $action truyền từ file index trong home sau dấu ? của href="index.php?action=viewUpdate"
+        $toTalController->updateCategory($_GET['id']);
+    }else if($action == 'viewadd'){ //đây chính là $action truyền từ file index trong home sau dấu ? của href="index.php?action=viewUpdate"
+        $toTalController-> viewaddcategory();
+    }
+    else if($action == 'addcategory'){ //đây chính là $action truyền từ file index trong home sau dấu ? của href="index.php?action=viewUpdate"
+        $toTalController-> addcategory();
+    }
+}else {
+    echo 'Nothing';
 }
-require_once($controllerPath);
-// B4. Tạo đối tượng và gọi hàm của Controller
-$myObj = new $controller();  //controller=home > new HomeController()
-$myObj->$action(); //action=index > index()
