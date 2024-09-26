@@ -145,8 +145,7 @@
 
     <!-- Navbar -->
     <div class="navbar">
-        <a href="#">Trang chủ</a>
-        <a href="#">Trang ngoài</a>
+        <a href="./">Trang chủ</a>
         <a href="#" class="active">Thể loại</a>
         <a href="#">Tác giả</a>
         <a href="#">Bài viết</a>

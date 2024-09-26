@@ -58,6 +58,7 @@ function add() {
         }
     }
 }
+
 function viewUpdate() {
     $conn = getDatabaseConnection();
 
@@ -86,7 +87,7 @@ function Update($id) {
         $ten_tloai = $_POST['ten_tloai'];
         // var_dump($id, $ten_tloai);
         $sql = "UPDATE theloai SET ten_tloai = ? WHERE ma_tloai = ?";
-        $stmt = $conn->prepare($sql); // "i" chỉ rõ $id là một số nguyên
+        $stmt = $conn->prepare($sql); 
         $stmt->bind_param("si", $ten_tloai,$id); // "i" chỉ rõ $id là một số nguyên
         $stmt->execute();
         $result = $stmt->get_result();

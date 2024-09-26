@@ -53,7 +53,7 @@
         }
 
         /* Button styling */
-        button {
+        .btn-add {
             background-color: #28a745;
             /* Green background */
             color: white;
@@ -63,9 +63,10 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            text-decoration: none;
         }
 
-        button:hover {
+        .btn-add:hover {
             background-color: #218838;
             /* Darker green on hover */
         }
@@ -162,6 +163,8 @@
     <div class="navbar">
         <a href="./">Trang chủ</a>
         <a href="#" class="active">Thể loại</a>
+        <a href="#" class="active">Thể loại</a>
+
         <a href="#">Tác giả</a>
         <a href="#">Bài viết</a>
     </div>
@@ -174,13 +177,13 @@
         </div>
 
         <!-- Button -->
-        <a href="index.php?&action=viewadd&controller=total"  >Thêm mới</a>
+        <a href="index.php?&action=viewadd&controller=total" class="btn-add" >Thêm mới</a>
 
         <!-- Table -->
         <table>
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th>Mã thể loại</th>
                     <th>Tên thể loại</th>
                     <th>Sửa</th>
                     <th>Xóa</th>

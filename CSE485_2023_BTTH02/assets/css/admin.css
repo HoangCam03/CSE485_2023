@@ -1,0 +1,6 @@
+.admin-dashboard{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    background-color: palegoldenrod;
+}
